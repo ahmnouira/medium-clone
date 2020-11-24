@@ -14,10 +14,17 @@ app.use(bodyParser.json());
 app.get('/', (_, res) => {
     return res.send(`<p>server running </p>`)
 
-}); 
+});
 
 app.get('/posts', (_, res) => {
     return res.json(posts);
+});
+
+
+app.get("/posts/:id", (req, res) => {
+    const wanted: string = String(req.params.id);
+    const post = posts.find(({ id }) => String(id) === wanted);
+    return res.json(post);
 });
 
 app.get('/categories', (_, res) => {

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Post, Category } from '../shared/types';
 import { Feed } from '../components/Feed/Feed';
 import { fetchCategories, fetchPosts } from '../api/summury';
+import { GetStaticProps } from 'next';
 
 interface FrontProps {
     posts: Post[]

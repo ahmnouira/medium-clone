@@ -1,4 +1,10 @@
-import fetch from 'node-fetch';
+// this file for the front page (main page)
+
+import fetch from 'node-fetch'; 
+/**
+ * node-fetch: this is because when Next builds a project it will run outside the browser's enviroment so it wan't 
+ * have access to API fetch 
+ */
 import { Post, Category } from '../shared/types';
 import { config } from './config';
 
