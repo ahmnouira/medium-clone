@@ -15,7 +15,7 @@ export const Feed: FunctionComponent<FeedProps> = ({ posts, categories }: FeedPr
                 categories.map((category) => {
                     const inSection: Post[] = posts.filter((post) => post.category === category);
                     return (
-                        <Section key={category} title={category} posts={inSection} />
+                        <Section key={category} title={category} posts={inSection} isCompact />
                     )
                 })
             }

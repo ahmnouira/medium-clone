@@ -1,0 +1,6 @@
+{
+    "verbose": true,
+    "watch": ["./server"],
+    "ingore": ["./server/**/*.spec.ts"],
+    "exec": "ts-node -O '{\"module\": \"commonjs\"}' ./server/index.ts"
+}
