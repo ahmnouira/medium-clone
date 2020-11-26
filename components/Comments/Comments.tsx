@@ -1,32 +1,28 @@
-import React, { FC } from 'react';
-import { EntityId, Comment as CommentType } from '../../shared/types';
-import { List, Item, Container } from './style';
-import { Comment } from '../Commnet';
-import { CommentForm } from '../CommentForm';
+import React, { FC } from 'react'
+
+import { Comment as CommentType, EntityId } from '../../shared/types'
+import { CommentForm } from '../CommentForm'
+import { Comment } from '../Commnet'
+import { Container, Item, List } from './style'
 
 interface CommentsProps {
-    postId: EntityId,
-    comments: CommentType[]
+  postId: EntityId
+  comments: CommentType[]
 }
 
 // wrapper
 export const Comments: FC<CommentsProps> = ({ postId, comments }: CommentsProps) => {
-
-    return (
-        <Container id="comments">
-            <h3>Comments</h3>
-            <List>
-                {
-                    comments.map((comment) => (
-                        <Item key={comment.id}>
-                            <Comment comment={comment} />
-                        </Item>
-                    ))
-                }
-            </List>
-            <CommentForm postId={postId} />
-        </Container>
-
-    )
-
+  return (
+    <Container id='comments'>
+      <h3>Comments</h3>
+      <List>
+        {comments.map((comment) => (
+          <Item key={comment.id}>
+            <Comment comment={comment} />
+          </Item>
+        ))}
+      </List>
+      <CommentForm postId={postId} />
+    </Container>
+  )
 }

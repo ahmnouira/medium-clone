@@ -1,34 +1,35 @@
-import React, { FunctionComponent } from 'react';
-import { Post as PostType, Comment as CommentType } from '../../shared/types';
-import { fetchPost } from '../../api/post';
-import { GetStaticPropsContext, GetStaticProps, GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
-import { useRouter, NextRouter } from 'next/router';
-import { Loader } from '../../components/Loader';
-import { postPaths as paths } from '../../shared/staticPaths';
-import { PostBody } from '../../components/PostBody';
-import { fetchComments } from '../../api/comment';
-import { Comments } from '../../components/Comments';
-import { store, State } from '../../store';
-import { UPDATE_POST_ACTION } from '../../store/post';
-import { UPDATE_COMMENTS_ACTION } from '../../store/comments';
-import { ParsedUrlQuery } from 'querystring';
-import { useSelector } from "react-redux"
+import { ParsedUrlQuery } from 'querystring'
+
+import { GetServerSideProps, GetServerSidePropsContext, GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
+import { NextRouter, useRouter } from 'next/router'
+import React, { FunctionComponent } from 'react'
+import { useSelector } from 'react-redux'
+
+import { fetchComments } from '../../api/comment'
+import { fetchPost } from '../../api/post'
+import { Comments } from '../../components/Comments'
+import { Loader } from '../../components/Loader'
+import { PostBody } from '../../components/PostBody'
+import { postPaths as paths } from '../../shared/staticPaths'
+import { Comment as CommentType, Post as PostType } from '../../shared/types'
+import { State, store } from '../../store'
+import { UPDATE_COMMENTS_ACTION } from '../../store/comments'
+import { UPDATE_POST_ACTION } from '../../store/post'
 
 interface PostProps {
-    post: PostType
-    comments: CommentType[]
+  post: PostType
+  comments: CommentType[]
 }
 
 export const getServerSideProps: GetServerSideProps<Promise<void>, ParsedUrlQuery> = store.getServerSideProps(
-    async ({ store, params }) => {
-        if (typeof params.id !== "string") throw new Error("Unexpected id")
-        const comments: CommentType[] = await fetchComments(params.id)
-        const post: PostType = await fetchPost(params.id)
-        store.dispatch({ type: UPDATE_POST_ACTION, post })
-        store.dispatch({ type: UPDATE_COMMENTS_ACTION, comments })
-    }
+  async ({ store, params }) => {
+    if (typeof params.id !== 'string') throw new Error('Unexpected id')
+    const comments: CommentType[] = await fetchComments(params.id)
+    const post: PostType = await fetchPost(params.id)
+    store.dispatch({ type: UPDATE_POST_ACTION, post })
+    store.dispatch({ type: UPDATE_COMMENTS_ACTION, comments })
+  }
 )
-
 
 /** 
 // since the page is also going to be pre-rendred, we create getStaticProps, to make the page SSR-ed we have export GetServerSideProps
@@ -70,15 +71,15 @@ const Post: FunctionComponent<PostProps> = ({ post, comments }: PostProps) => {
 */
 
 const Post: NextPage = () => {
-    const { post, comments } = useSelector<State, State>((state: State) => state)
+  const { post, comments } = useSelector<State, State>((state: State) => state)
 
-    if (!post) return <Loader />
+  if (!post) return <Loader />
 
-    return (
-        <>
-            <PostBody post={post} />
-            <Comments comments={comments} postId={post.id} />
-        </>
-    )
+  return (
+    <>
+      <PostBody post={post} />
+      <Comments comments={comments} postId={post.id} />
+    </>
+  )
 }
-export default Post;
+export default Post

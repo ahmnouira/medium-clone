@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Card = styled.a`
   border-radius: 6px;
@@ -14,7 +14,7 @@ export const Card = styled.a`
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.035), 0 6px 35px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
   }
-`;
+`
 
 export const Figure = styled.figure`
   padding: 56% 0 0;
@@ -30,12 +30,12 @@ export const Figure = styled.figure`
     top: 0;
     left: 0;
   }
-`;
+`
 
 export const Title = styled.h3`
   margin: 10px 20px;
   font-size: 1.4rem;
-`;
+`
 
 export const Lead = styled.div`
   margin: 0 20px 20px;
@@ -43,4 +43,4 @@ export const Lead = styled.div`
   & > * {
     margin: 0 0 10px;
   }
-`;
+`

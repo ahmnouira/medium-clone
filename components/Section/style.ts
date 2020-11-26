@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Grid = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const Grid = styled.div`
   justify-content: space-between;
 
   &:after {
-    content: "";
+    content: '';
     flex: auto;
   }
 
@@ -22,7 +22,7 @@ export const Grid = styled.div`
       width: 100%;
     }
   }
-`;
+`
 
 export const Title = styled.h2`
   font-size: 2.8rem;
@@ -32,10 +32,10 @@ export const Title = styled.h2`
   @media (max-width: 800px) {
     font-size: 2rem;
   }
-`;
+`
 
 export const MoreLink = styled.a`
   margin: -20px 0 30px;
   display: inline-block;
   vertical-align: top;
-`;
+`

@@ -1,19 +1,19 @@
-import { ThemeProps, createGlobalStyle } from "styled-components"
+import { ThemeProps, createGlobalStyle } from 'styled-components'
 
 export const theme = {
-    fonts: {
-        basic: 'Helvetica, sans-serif',
-        accent: '"Permanent Marker", cursive'
-    },
+  fonts: {
+    basic: 'Helvetica, sans-serif',
+    accent: '"Permanent Marker", cursive',
+  },
 
-    colors: {
-        orange: '#f4ae40',
-        blue: '#387af5',
-        pink: '#eb57a3'
-    }
+  colors: {
+    orange: '#f4ae40',
+    blue: '#387af5',
+    pink: '#eb57a3',
+  },
 }
 
-export type MainThemeProps = ThemeProps<typeof theme>;
+export type MainThemeProps = ThemeProps<typeof theme>
 export const GlobalStyle = createGlobalStyle<MainThemeProps>`
 body {
     margin: 0; 

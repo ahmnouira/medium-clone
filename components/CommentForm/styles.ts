@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Form = styled.form`
   input,
@@ -20,14 +20,12 @@ export const Form = styled.form`
     padding: 8px 20px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.035),
-      0 4px 25px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.035), 0 4px 25px rgba(0, 0, 0, 0.07);
     transition: all 0.2s;
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.035),
-        0 6px 35px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.035), 0 6px 35px rgba(0, 0, 0, 0.2);
     }
   }
 `
