@@ -2,15 +2,17 @@ import React, { FunctionComponent } from 'react';
 import { Post } from '../../shared/types';
 import { Content, Figure, Title, Meta } from './style';
 import Link from 'next/link';
+import { Breadcrumbs } from '../Breadcrumbs';
 
 interface PostBodyProps {
     post: Post
 }
 
-export const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
+export const PostBody: FunctionComponent<PostBodyProps> = ({ post }: PostBodyProps) => {
 
     return (
         <div>
+            <Breadcrumbs post={post} />
             <Title>
                 {post.title}
             </Title>

@@ -1,0 +1,2 @@
+[] add pretier
+[] add tslint

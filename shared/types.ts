@@ -5,6 +5,7 @@ export type Category = "Technology" | "Science" | "Arts" | "Sports";
 export type DateIsoString  = string; 
 
 
+
 export interface Post  {
     id: EntityId
     date: DateIsoString
@@ -16,3 +17,13 @@ export interface Post  {
     source: UriString
 }
 
+export type Person = string; 
+export type RelativeTime = string; 
+
+export interface Comment {
+    id: EntityId
+    author: Person
+    content: string 
+    time: RelativeTime
+    postId: EntityId
+}
