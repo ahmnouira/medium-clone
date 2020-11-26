@@ -27,3 +27,5 @@ export interface Comment {
     time: RelativeTime
     postId: EntityId
 }
+
+export type Optional<TEntity> = TEntity | null

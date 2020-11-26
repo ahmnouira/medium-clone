@@ -1,7 +1,10 @@
 import React, { FC, useState, FormEvent, ChangeEvent } from 'react';
-import { EntityId } from "../../shared/types";
+import { EntityId, Comment } from "../../shared/types";
 import { Form } from './styles';
 import { submitComment } from '../../api/comment';
+import { Response } from 'node-fetch';
+import { useDispatch } from 'react-redux';
+import { UPDATE_COMMENTS_ACTION } from '../../store/comments';
 
 interface CommentFormProps {
     postId: EntityId
@@ -13,18 +16,25 @@ export const CommentForm: FC<CommentFormProps> = ({ postId }: CommentFormProps) 
     const [loading, setLoading] = useState<boolean>(false);
     const [value, setValue] = useState<string>("");
     const [name, setName] = useState<string>("");
+    const dispatch = useDispatch();
 
     async function handleOnSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setLoading(true);
 
-        const { status } = await submitComment(postId, name, value);
+        const respsone: Response = await submitComment(postId, name, value);
+        const comments: Comment[] = await respsone.json();
         setLoading(false);
-
+        setName("");
+        setValue("")
+        if (respsone.status === 200) {
+            dispatch({ type: UPDATE_COMMENTS_ACTION, comments })
+        }
+        /*
         if (status === 201) { // something has been created
             location.hash = "comments"
             location.reload()
-        }
+        }*/
     }
 
     return (
@@ -44,7 +54,7 @@ export const CommentForm: FC<CommentFormProps> = ({ postId }: CommentFormProps) 
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value)}
                 required
             />
-            {loading ? <span>Submitting...</span>: <button>Submit</button> }
+            {loading ? <span>Submitting...</span> : <button>Submit</button>}
         </Form>
     )
 }

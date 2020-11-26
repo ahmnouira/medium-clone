@@ -1,2 +1,2 @@
-[] add pretier
-[] add tslint
+- [] add pretier
+- [] add tslint

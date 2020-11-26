@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import morgan from 'morgan'; 
 
 import categories from './categories.json';
 import posts from './posts.json';
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(morgan("dev")); 
 
 app.get('/', (_, res) => {
     return res.send(`<p>server running </p>`)
@@ -64,7 +66,9 @@ app.post('/posts/:postId/comments', (req, res) => {
         postId,
         time: "Less than a minute ago"
     })
-    return res.sendStatus(201)
+    // return the list of comments for live data (without reload the client page)
+    const found = comments.filter(comment => comment.postId === postId);
+    return res.json(found)
 });
 
 app.listen(PORT, () => {
