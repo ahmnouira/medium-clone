@@ -9,6 +9,8 @@
     "serve": "nodemon",
     "format": "prettier --check \"**/*.{ts,tsx}\" && import-sort --list-different --version \"**/*.{tsx,ts}\"",
     "format:fix": "prettier --write \"**/*.{ts,tsx}\" && import-sort --write \"**/*.{tsx,ts}\"", 
+    "lint": "tslint --config tslint.json --force --project .",
+    "lint:fix": "tslint --config tslint.json --fix --force --project .",
     "clean": "yarn cache clean && yarn install",
     "dev": "concurrently --kill-others \"yarn serve\" \"next\""
   },

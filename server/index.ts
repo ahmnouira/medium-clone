@@ -36,8 +36,8 @@ app.get('/categories/:id', (req, res) => {
   const { id } = req.params
   const found = posts.filter(({ category }) => category.toLocaleLowerCase() === id)
   // const categoryPosts = [...found, ...found, ...found, ...found, ...found, ...found];
-  let categoryPosts = []
-  let rows = 200
+  const categoryPosts = []
+  const rows = 200
   for (let i = 0; i < rows; i++) {
     categoryPosts.push(...found)
   }
@@ -47,7 +47,7 @@ app.get('/categories/:id', (req, res) => {
 
 app.get('/comments/:postId', (req, res) => {
   const id: number = Number(req.params.postId)
-  let json: Comment[] = JSON.parse(JSON.stringify(comments))
+  const json: Comment[] = JSON.parse(JSON.stringify(comments))
   // console.log('comments:', json);
   const found = comments.filter(({ postId }) => postId === id)
   return res.json(found)

@@ -8,9 +8,12 @@
     "rules": {
         "prettier": true, 
         "no-unused-declaration": true,
+        "no-unused-expression": true,
         "quotemark": [true, "single", "avoid-escape"],
         "semicolon": [true, "never"], 
-        "max-line-length": [true, 90],
-        
+        "max-line-length": [true, 120],
+        "max-file-line-count": [true, 120],
+        "max-classes-per-file": [true, 1],
+        "no-shadowed-variable": false        
     }
 }

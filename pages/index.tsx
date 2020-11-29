@@ -1,4 +1,3 @@
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import React, { ReactElement } from 'react'
 

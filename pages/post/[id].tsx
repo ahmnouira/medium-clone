@@ -1,8 +1,6 @@
 import { ParsedUrlQuery } from 'querystring'
 
-import { GetServerSideProps, GetServerSidePropsContext, GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
-import { NextRouter, useRouter } from 'next/router'
-import React, { FunctionComponent } from 'react'
+import { GetServerSideProps, NextPage } from 'next'
 import { useSelector } from 'react-redux'
 
 import { fetchComments } from '../../api/comment'
@@ -10,7 +8,6 @@ import { fetchPost } from '../../api/post'
 import { Comments } from '../../components/Comments'
 import { Loader } from '../../components/Loader'
 import { PostBody } from '../../components/PostBody'
-import { postPaths as paths } from '../../shared/staticPaths'
 import { Comment as CommentType, Post as PostType } from '../../shared/types'
 import { State, store } from '../../store'
 import { UPDATE_COMMENTS_ACTION } from '../../store/comments'
