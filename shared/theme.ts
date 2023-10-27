@@ -1,4 +1,5 @@
-import { ThemeProps, createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
+import { Styles } from 'styled-components/dist/types'
 
 export const theme = {
   fonts: {
@@ -13,8 +14,7 @@ export const theme = {
   },
 }
 
-export type MainThemeProps = ThemeProps<typeof theme>
-export const GlobalStyle = createGlobalStyle<MainThemeProps>`
+export const GlobalStyle = createGlobalStyle<typeof theme>`
 body {
     margin: 0; 
     font-family: ${({ theme }) => theme.fonts.basic}; 

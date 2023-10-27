@@ -7,5 +7,5 @@ export interface HydrateAction extends AnyAction {
   type: typeof HYDRATE
 }
 // Each reducer must have a handler for this action. Because each time when pages
-// that have getServerSideProps are opned by a user the HYDRATE action will
+// that have getServerSideProps are opened by a user the HYDRATE action will
 // be dispatched

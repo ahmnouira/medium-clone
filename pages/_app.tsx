@@ -33,5 +33,5 @@ App.getInitialProps = async ({ Component, ctx }: AppContext) => ({
   },
 })
 
-// we call page-level getIntialProps() this is required to correctly collect the data from the store
+// we call page-level getInitialProps() this is required to correctly collect the data from the store
 export default store.withRedux(App)

@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps<CategoryProps, ParsedUrlQuery> = asy
   }
 }
 
-// fallback: ture to make sure that **no** page would return 404 when it's not pre-rendered
+// fallback: true to make sure that **no** page would return 404 when it's not pre-rendered
 export async function getStaticPaths() {
   return {
     paths,

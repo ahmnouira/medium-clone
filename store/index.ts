@@ -1,4 +1,4 @@
-import { MakeStore, createWrapper } from 'next-redux-wrapper'
+import { createWrapper } from 'next-redux-wrapper'
 import { Reducer } from 'react'
 import { AnyAction, CombinedState, combineReducers, createStore } from 'redux'
 
@@ -15,8 +15,8 @@ const combinedReducer: Reducer<CombinedState<State>, AnyAction> = combineReducer
   comments: commentsReducer,
 })
 
-const makeStore: MakeStore<State, AnyAction> = () => createStore(combinedReducer)
+const makeStore = () => createStore(combinedReducer)
 
-export const store = createWrapper<State, AnyAction>(makeStore, {
+export const store = createWrapper(makeStore, {
   debug: true,
 })

@@ -5,5 +5,5 @@ import { config } from './config'
 
 export async function fetchPost(id: EntityId): Promise<Post> {
   const res = await fetch(`${config.baseUrl}/posts/${id}`)
-  return await res.json()
+  return (await res.json()) as Post
 }

@@ -1,4 +1,4 @@
-// one post has 0 or many commments (post.ts) NOT posts
+// One post has 0 or many comments (post.ts) NOT posts
 
 import { HYDRATE } from 'next-redux-wrapper'
 import { AnyAction } from 'redux'

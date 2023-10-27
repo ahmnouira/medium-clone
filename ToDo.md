@@ -1,2 +1,4 @@
-- [] add pretier
+#
+
+- [] add prettier
 - [] add tslint

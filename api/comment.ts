@@ -4,8 +4,8 @@ import { Comment, EntityId, Person } from '../shared/types'
 import { config } from './config'
 
 export async function fetchComments(postId: EntityId): Promise<Comment[]> {
-  const res: Response = await fetch(`${config.baseUrl}/comments/${postId}`)
-  return await res.json()
+  const res = await fetch(`${config.baseUrl}/comments/${postId}`)
+  return (await res.json()) as Comment[]
 }
 
 export async function submitComment(postId: EntityId, name: Person, comment: string): Promise<Response> {

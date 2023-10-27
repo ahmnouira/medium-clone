@@ -21,12 +21,12 @@ export const CommentForm: FC<CommentFormProps> = ({ postId }: CommentFormProps) 
     e.preventDefault()
     setLoading(true)
 
-    const respsone: Response = await submitComment(postId, name, value)
-    const comments: Comment[] = await respsone.json()
+    const response = await submitComment(postId, name, value)
+    const comments: Comment[] = (await response.json()) as Comment[]
     setLoading(false)
     setName('')
     setValue('')
-    if (respsone.status === 200) {
+    if (response.status === 200) {
       dispatch({ type: UPDATE_COMMENTS_ACTION, comments })
     }
     /*
