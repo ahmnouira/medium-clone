@@ -1,3 +1,4 @@
+import {} from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import { Styles } from 'styled-components/dist/types'
 
@@ -14,7 +15,7 @@ export const theme = {
   },
 }
 
-export const GlobalStyle = createGlobalStyle<typeof theme>`
+export const GlobalStyle = createGlobalStyle`
 body {
     margin: 0; 
     font-family: ${({ theme }) => theme.fonts.basic}; 

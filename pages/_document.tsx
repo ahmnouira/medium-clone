@@ -1,18 +1,24 @@
-import { DocumentInitialProps, RenderPage } from 'next/dist/next-server/lib/utils'
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const sheet: ServerStyleSheet = new ServerStyleSheet()
-    const originalRenderPage: RenderPage = ctx.renderPage
+    const sheet = new ServerStyleSheet()
+
+    console.log('sheet', sheet)
+    if (!sheet) return
+
+    const originalRenderPage = ctx.renderPage
+
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         })
-      const initialProps: DocumentInitialProps = await Document.getInitialProps(ctx)
+      const initialProps = await Document.getInitialProps(ctx)
+      console.log('initialProps', initialProps)
+      if (!initialProps) return
 
       return {
         ...initialProps,

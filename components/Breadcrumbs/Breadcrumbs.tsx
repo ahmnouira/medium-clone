@@ -11,12 +11,10 @@ interface BreadcrumbsProps {
 export const Breadcrumbs: FC<BreadcrumbsProps> = ({ post }: BreadcrumbsProps) => {
   return (
     <Container>
-      <Link href='/'>
-        <a>Front</a>
-      </Link>
+      <Link href='/'>Front</Link>
       <span>.</span>
       <Link href='/category/[id]' as={`/category/${post.category.toLocaleLowerCase()}`}>
-        <a>{post.category}</a>
+        {post.category}
       </Link>
     </Container>
   )

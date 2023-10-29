@@ -1,6 +1,5 @@
 import { AppContext } from 'next/app'
 import Head from 'next/head'
-import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { Center } from '../components/Center'

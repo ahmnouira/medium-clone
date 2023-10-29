@@ -9,9 +9,7 @@ export const Header: FunctionComponent = () => {
     <Container>
       <Center>
         <Logo>
-          <Link href='/'>
-            <a>What's Next ?!</a>
-          </Link>
+          <Link href='/'>What's Next ?!</Link>
         </Logo>
       </Center>
     </Container>

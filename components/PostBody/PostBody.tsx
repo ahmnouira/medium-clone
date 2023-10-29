@@ -26,7 +26,7 @@ export const PostBody: FunctionComponent<PostBodyProps> = ({ post }: PostBodyPro
         <span>{post.date}</span>
         <span>&middot;</span>
         <Link href='/category/[id]' as={`/category/${post.category.toLocaleLowerCase()}`}>
-          <a>{post.category}</a>
+          {post.category}
         </Link>
         <span>&middot;</span>
         <a href={post.source}>Source</a>

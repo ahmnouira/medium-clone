@@ -1,8 +1,6 @@
 import { ParsedUrlQuery } from 'querystring'
-
 import { GetServerSideProps, NextPage } from 'next'
 import { useSelector } from 'react-redux'
-
 import { fetchComments } from '../../api/comment'
 import { fetchPost } from '../../api/post'
 import { Comments } from '../../components/Comments'
@@ -19,13 +17,16 @@ interface PostProps {
 }
 
 export const getServerSideProps: GetServerSideProps<Promise<void>, ParsedUrlQuery> = store.getServerSideProps(
-  async ({ store, params }) => {
-    if (typeof params.id !== 'string') throw new Error('Unexpected id')
-    const comments: CommentType[] = await fetchComments(params.id)
-    const post: PostType = await fetchPost(params.id)
-    store.dispatch({ type: UPDATE_POST_ACTION, post })
-    store.dispatch({ type: UPDATE_COMMENTS_ACTION, comments })
-  }
+  (store) =>
+    async ({ params }) => {
+      if (typeof params.id !== 'string') throw new Error('Unexpected id')
+      const comments: CommentType[] = await fetchComments(params.id)
+      const post: PostType = await fetchPost(params.id)
+      store.dispatch({ type: UPDATE_POST_ACTION, post })
+      store.dispatch({ type: UPDATE_COMMENTS_ACTION, comments })
+
+      return null
+    }
 )
 
 /** 
